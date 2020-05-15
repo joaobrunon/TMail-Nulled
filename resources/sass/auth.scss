@@ -1,0 +1,27 @@
+// Variables
+@import 'variables';
+
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background: $primary;
+}
+
+.tm-logo {
+    text-align: center;
+    margin: 4em 0;
+}
+
+.card-header {
+    font-size: 2em;
+    font-weight: 600;
+    color: #fff;
+    background: transparent;
+    padding: 0.5em 0;
+}
+
+.card {
+    padding: 2em;
+}
