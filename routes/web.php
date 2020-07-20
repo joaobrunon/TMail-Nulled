@@ -72,6 +72,9 @@ Route::get('/admin/update', 'AdminController@update')->name('AdminUpdate');
 Route::get('/admin/update/apply', 'AdminController@applyUpdate')->name('AdminApplyUpdate');
 Route::post('/admin/update/manual', 'AdminController@manualUpdate')->name('AdminUpdateManual');
 
+Route::get('/admin/account', 'AdminController@account')->name('AdminAccount');
+Route::post('/admin/account/update', 'AdminController@accountUpdate')->name('AdminAccountUpdate');
+
 Route::get('/cron/deletemails', 'CronController@deleteEmails');
 
 Route::post('/passwordreset', 'HomeController@passwordReset')->name('PasswordReset');

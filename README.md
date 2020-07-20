@@ -1,5 +1,12 @@
 # TMail-Nulled
-***Version 5.6***
+***Version 5.7***
+
+v5.7 - 8 July 2020
+- Added Compact Layout for Actions
+- Added ability to add Favicon
+- Added ability to change Admin Details and Password
+- Added Vietnamese Language (By Nguyễn Hải Đăng) 
+- Fixed Timezone Issues
 
 v5.6 - 20 April 2020
 - Added Ad Space 5 between logo and create/action box
@@ -67,28 +74,28 @@ v5.0 - 2 June 2019
 - Social Media Links
 - Support for PHP v7.1 and above
 
-v4.3.7 - 5 March 2019
+v4.7 - 5 March 2019
 - Added Ads on Homepage (Top & Bottom)
 - Added Language support for Push Notifications
 - Fixed error on PHP 7.0 (Modern Layout)
 
-v4.3.6 - 19 January 2019
+v4.6 - 19 January 2019
 - Added ability to change application colours from Admin Panel (Modern Layout)
 - Added ability to logout from Admin Panel
 - Fixed UI issue related to switching email on mobile
 - Fixed Clear email button issue on mobile
 
-v4.3.5 - 12 January 2019
+v4.5 - 12 January 2019
 - Added "Test SMTP Connection" in Admin Panel 
 - Fixed 'DIE' notification error
 - Fixed countdown issue in Modern
 - Minor Design Fix
 
-v4.3.4 - 30 December 2018
+v4.4.1 - 30 December 2018
 - Fixed PHP Server Variables Issues
 - Minor Design Fix
 
-v4.3.3 - 26 December 2018
+v4.4 - 26 December 2018
 - Added API Support
 - Added countdown in Modern Layout
 

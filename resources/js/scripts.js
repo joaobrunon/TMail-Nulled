@@ -205,7 +205,8 @@ function fetch(mails, newFetch = false) {
                 $("#mails").prepend("<div class='mail-item'>"+ad_space_4+"</div>");
             }
         }
-        value['html'] = value['html'].replace("a href", "a target='_blank' href");
+
+        value['html'] = value['html'].replace("href", "target='_blank' href");
 
         var message = '<div id="content-mail-'+key+'" class="mail-content"><div class="close-mail-content"><i class="fas fa-angle-double-left"></i><span>View all mails</span></div><div class="subject">'+value['subject']+'</div><div class="row sender-time"><div class="col-md-9 sender">'+value['sender_name']+' - '+value['sender_email']+'</div><div class="col-md-3 time">'+value['time']+'</div></div><span class="mail-delete" uid="'+key+'"><i class="fas fa-trash-alt"></i></span><span class="mail-download" key="'+key+'" subject="'+value['subject'].replace(/ /g, "_")+'"><i class="fas fa-save"></i></span><div class="message">'+value['html']+'</div><div class="attachments">';
         $.each( value['attachments'], function( akey, avalue ) {

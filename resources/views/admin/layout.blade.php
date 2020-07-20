@@ -47,6 +47,7 @@
                                     <li><a {{ Request::is('admin/configuration') ? "class=active" : "class=a" }} href="{{ env('APP_URL') }}/admin/configuration">Configuration</a></li>
                                     <li><a {{ Request::is('admin/pages') ? "class=active" : "class=a" }} href="{{ env('APP_URL') }}/admin/pages">Pages</a></li>
                                     <li><a {{ Request::is('admin/menu') ? "class=active" : "class=a" }} href="{{ env('APP_URL') }}/admin/menu">Menu</a></li>
+                                    <li><a {{ Request::is('admin/account') ? "class=active" : "class=a" }} href="{{ env('APP_URL') }}/admin/account">Account</a></li>
                                     <li><a {{ Request::is('admin/update') ? "class=active" : "class=a" }} href="{{ env('APP_URL') }}/admin/update">Update</a></li>
                                 </ul>
                             </nav>
@@ -103,16 +104,16 @@
                         TMail Update Available <a href="{{ route('AdminUpdate') }}">Apply Update</a>
                         </div>
                     @endif
-                    @if(isset($success))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ $success }}
+                    @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+                        {{ session('success') }}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     @endif 
                     @if(!$errors->isEmpty())
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
                         <strong>Oops!</strong> We encountered some errors<br>
                         @foreach ($errors->all() as $error)
                         {{ $error }}<br>

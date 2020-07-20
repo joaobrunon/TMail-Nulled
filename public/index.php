@@ -7,6 +7,10 @@
  * @author   Taylor Otwell <taylor@laravel.com>
  */
 
+if(!file_exists('../.env')) {
+    rename('../.env.example', '../.env');
+}
+
 $url = $_SERVER['REQUEST_URI'];
 if (strpos($url, 'public') !== false) {
     $url = str_replace('public/','',$url);

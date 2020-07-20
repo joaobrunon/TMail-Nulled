@@ -6,9 +6,11 @@ use App\Menu;
 use App\Meta;
 
 use App\Page;
+use App\User;
 use App\Option;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
@@ -76,6 +78,7 @@ class AdminController extends Controller {
         //Other Options
         $env["CC_CHECK"] = env('CC_CHECK', false);
         $env["CRON_PASSWORD"] = env('CRON_PASSWORD', '');
+        $env["ENABLE_COMPTACT_VIEW"] = env('ENABLE_COMPTACT_VIEW', false);
         //Ad Spaces & Custom JS, CSS & Header
         $options = Option::get();
         foreach($options as $option) {
@@ -142,9 +145,12 @@ class AdminController extends Controller {
                 $new_array[$key] = addslashes(preg_replace( "/\r|\n/", "", $value));
             }
         }
-        $file = $request->file('logo');
-        if($file)
-        $file->move(public_path().'/images/', "custom-logo.png");
+        $logo = $request->file('logo');
+        if($logo)
+        $logo->move(public_path().'/images/', "custom-logo.png");
+        $favicon = $request->file('favicon');
+        if($favicon)
+        $favicon->move(public_path().'/images/', "custom-favicon.png");
         $env_update = $this->changeEnv($new_array);
         if($env_update){
             return redirect()->route('AdminConfiguration')->with('success', "Configuration changed Successfully");
@@ -262,6 +268,30 @@ class AdminController extends Controller {
             $new->save();
         }
         return "done";
+    }
+
+    public function account() {
+        $user = User::first();
+        return view('admin.account')->with(compact('user'));
+    }
+
+    public function accountUpdate(Request $request) {
+        $user = User::first();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        if($request->has('change_password')) {
+            if(!Hash::check($request->input('current_password'), $user->password)) {
+                return redirect()->back()->withErrors('Current Password do not match');
+            }
+            $new_password = $request->input('new_password');
+            $confirm_password = $request->input('confirm_password');
+            if(!$new_password || $new_password != $confirm_password) {
+                return redirect()->back()->withErrors('New Password and Confirm Password should be same and not empty');
+            }
+            $user->password = Hash::make($new_password);
+        }
+        $user->save();
+        return redirect()->back()->with('success', 'Account updated successfully');
     }
 
     public function checkUpdate() {

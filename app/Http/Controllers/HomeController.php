@@ -226,16 +226,16 @@ class HomeController extends Controller
                 $mail["short_time"] = $date->format('M d');
             }
             $uid = $message->getUid();
-            $mail["sender_name"] = $sender[0]->personal;
+            $mail["sender_name"] = mb_convert_encoding($sender[0]->personal, 'UTF-8', 'UTF-8');
             $mail["sender_email"] = $sender[0]->mail;
             $mail["time"] = $date->format('d M Y h:i A');
             $mail["subject"] = mb_convert_encoding($message->getSubject(), 'UTF-8', 'UTF-8');
-            $mail["text"] = $message->getTextBody();
+            $mail["text"] = mb_convert_encoding($message->getTextBody(), 'UTF-8', 'UTF-8');
             if (!$mail["text"]) {
                 $mail["text"] = "";
             }
             $mail["text"] = str_replace(array("\r\n","\n"), '<br/>', $mail["text"]);
-            $mail["html"] = $message->getHTMLBody(true);
+            $mail["html"] = mb_convert_encoding($message->getHTMLBody(true), 'UTF-8', 'UTF-8');
             if (!$mail["html"]) {
                 $mail["html"] = $mail["text"];
             }
@@ -273,16 +273,16 @@ class HomeController extends Controller
                     $mail["short_time"] = $date->format('M d');
                 }
                 $uid = $cc_message->getUid();
-                $mail["sender_name"] = $sender[0]->personal;
+                $mail["sender_name"] = mb_convert_encoding($sender[0]->personal, 'UTF-8', 'UTF-8');
                 $mail["sender_email"] = $sender[0]->mail;
                 $mail["time"] = $date->format('d M Y h:i A');
                 $mail["subject"] = mb_convert_encoding($cc_message->getSubject(), 'UTF-8', 'UTF-8');
-                $mail["text"] = $cc_message->getTextBody();
+                $mail["text"] = mb_convert_encoding($cc_message->getTextBody(), 'UTF-8', 'UTF-8');
                 if (!$mail["text"]) {
                     $mail["text"] = "";
                 }
                 $mail["text"] = str_replace(array("\r\n","\n"), '<br/>', $mail["text"]);
-                $mail["html"] = $cc_message->getHTMLBody(true);
+                $mail["html"] = mb_convert_encoding($cc_message->getHTMLBody(true), 'UTF-8', 'UTF-8');
                 if (!$mail["html"]) {
                     $mail["html"] = $mail["text"];
                 }

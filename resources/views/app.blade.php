@@ -24,7 +24,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tm-nav">
+                    <div class="tm-nav {{ (env('ENABLE_COMPTACT_VIEW') ? 'tm-nav-mini' : '') }}">
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="action-item copy snackbar" action="copy" msg="{{ __('app.snackbar.copy') }}">

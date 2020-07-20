@@ -60,15 +60,32 @@ small {
     <br>
     <div class="tab-content">
         <div id="general" class="tab-pane fade in active">
-            <div class="form-group">
-                <label for="logo" class="col-form-label">Logo</label>
-                <div class="field">
-                    <input type="file" id="logo" class="{{ $errors->has("logo") ? ' is-invalid' : '' }}" name="logo">
-                    @if ($errors->has("logo"))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first("logo") }}</strong>
-                        </span>
-                    @endif
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="logo" class="col-form-label">Logo</label>
+                        <div class="field">
+                            <input type="file" id="logo" class="{{ $errors->has("logo") ? ' is-invalid' : '' }}" name="logo">
+                            @if ($errors->has("logo"))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first("logo") }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="favicon" class="col-form-label">Favicon</label>
+                        <div class="field">
+                            <input type="file" id="favicon" class="{{ $errors->has("favicon") ? ' is-invalid' : '' }}" name="favicon">
+                            @if ($errors->has("favicon"))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first("favicon") }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -384,6 +401,20 @@ small {
                     @if ($errors->has('TM_COLOR_TERTIARY'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('TM_COLOR_TERTIARY') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ENABLE_COMPTACT_VIEW" class="col-form-label">Enable Compact Layout for Actions (Copy, Refresh, New and Delete)</label>
+                <div class="field">
+                    <select id="ENABLE_COMPTACT_VIEW" class="form-control{{ $errors->has('ENABLE_COMPTACT_VIEW') ? ' is-invalid' : '' }}" name="ENABLE_COMPTACT_VIEW">
+                        <option value="true" {{ $env['ENABLE_COMPTACT_VIEW'] ? 'selected' : '' }}>Yes</option>
+                        <option value="false" {{ $env['ENABLE_COMPTACT_VIEW'] ? '' : 'selected' }}>No</option>
+                    </select>
+                    @if ($errors->has('ENABLE_COMPTACT_VIEW'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('ENABLE_COMPTACT_VIEW') }}</strong>
                         </span>
                     @endif
                 </div>

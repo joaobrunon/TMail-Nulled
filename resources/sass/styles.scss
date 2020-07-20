@@ -511,6 +511,22 @@ main {
                     font-size: 1em;
                 }
             }
+            &.tm-nav-mini {
+                div.action-item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 1em;
+                    .icon {
+                        font-size: 1.2em;
+                        margin: 0;
+                    }
+                    .text {
+                        padding-left: 0.4em;
+                        font-size: 1em;
+                    }
+                }
+            }
         }
         .tm-create {
             input {

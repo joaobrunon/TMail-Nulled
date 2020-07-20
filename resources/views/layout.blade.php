@@ -17,6 +17,13 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
+    <!-- Favicon -->
+    @if(file_exists(public_path('images/custom-favicon.png')))
+    <link rel="icon" href="{{ asset('images/custom-favicon.png') }}" type="image/png">
+    @else 
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
+    @endif
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}?v={{ env('APP_VERSION') }}" rel="stylesheet">
